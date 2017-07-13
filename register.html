@@ -11,6 +11,27 @@
     <script src="scripts/bootstrap.js"></script>
 </head>
 <body>
+
+<script>
+    $(document).ready(function () {
+        $('#inputRegister').attr('disabled', 'disabled');
+        $('#inputEmail').keyup(function () {
+            if ($(this).val() != '') {
+                $('#inputRegister').removeAttr('disabled');
+            }
+            else {
+                $('#inputRegister').attr('disabled', 'disabled');
+            }
+        });
+    });
+
+</script>
+<script>
+    function login() {
+        window.location.assign("login.html")
+    }
+</script>
+
 <header>
     <div class="navbar navbar-default navbar-fixed-top text-uppercase">
         <div class="container">
@@ -41,22 +62,26 @@
                     <label class="col-sm-4 control-label" for="inputEmail">Email</label>
                     <div class="col-sm-4 input-group has-success has-feedback">
                         <span class="input-group-addon">@</span>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="jane.doe@example.com" required>
+                        <input type="email" class="form-control" id="inputEmail"
+                               placeholder="jane.doe@example.com" required />
                     </div>
-
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span id="inputEmailSuccessStatus" class="sr-only">(success)</span>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Full Name</label>
                     <div class="col-sm-4 input-group has-success has-feedback">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                        <input type="text" class="form-control" id="fullName" placeholder="Full Name">
+                        <input type="text" class="form-control" id="fullName"
+                               placeholder="Full Name" required />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label  for=inputPassword">Password</label>
                     <div class="col-sm-4 input-group has-success has-feedback">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                        <input type="password" class="form-control" id="password"
+                               placeholder="Password" required />
                     </div>
 
                 </div>
@@ -64,13 +89,16 @@
                     <label class="col-sm-4 control-label  for=inputPassword">Confirm Password</label>
                     <div class="col-sm-4 input-group has-success has-feedback">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+                        <input type="password" class="form-control" id="confirmPassword"
+                               placeholder="Confirm Password" required />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-4">
                         <button type="reset" class="btn btn-default">Cancel</button>
-                        <button type="submit" class="btn btn-primary"><a href="login.html">Register</a></button>
+                        <button type="button" onclick="login()"
+                                class="btn btn-primary" id="inputRegister">Register
+                        </button>
                     </div>
                 </div>
 
